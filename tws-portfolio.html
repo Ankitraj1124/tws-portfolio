@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit Raj | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0b1020;
+            color: #eef2ff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* NAVBAR */
+        header {
+            background: rgba(11, 16, 32, 0.95);
+            border-bottom: 1px solid #252c40;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #61e6c2;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #a5aec5;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #61e6c2;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h4 {
+            color: #61e6c2;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            line-height: 1.15;
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: #8b9cff;
+        }
+
+        .hero p {
+            color: #a5aec5;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            border-radius: 8px;
+            border: 1px solid #8b9cff;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #8b9cff;
+            color: #0b1020;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            background: #61e6c2;
+            color: #0b1020;
+            border-color: #61e6c2;
+        }
+
+        .profile {
+            background: #171e33;
+            border: 1px solid #303953;
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            min-width: 270px;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #61e6c2, #8b9cff);
+            color: #0b1020;
+            font-size: 40px;
+            font-weight: bold;
+            display: grid;
+            place-items: center;
+            margin: auto auto 20px;
+        }
+
+        .profile p {
+            color: #a5aec5;
+            margin-top: 5px;
+        }
+
+        /* GENERAL SECTIONS */
+        section:not(.hero) {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+        }
+
+        .section-title p {
+            color: #a5aec5;
+        }
+
+        .section-title span {
+            color: #61e6c2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        /* ABOUT */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #171e33;
+            border: 1px solid #303953;
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #8b9cff;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #a5aec5;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            background: #242e4b;
+            border: 1px solid #39476a;
+            color: #dce2ff;
+            padding: 9px 16px;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #171e33;
+            border: 1px solid #303953;
+            padding: 28px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: #61e6c2;
+        }
+
+        .project-card p {
+            color: #a5aec5;
+            margin: 12px 0;
+        }
+
+        .project-card a {
+            color: #61e6c2;
+            font-weight: bold;
+        }
+
+        /* EXPERIENCE */
+        .experience {
+            border-left: 2px solid #61e6c2;
+            padding-left: 25px;
+            margin-left: 10px;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: #61e6c2;
+            border-radius: 50%;
+            position: absolute;
+            left: -32px;
+            top: 8px;
+        }
+
+        .experience-item p {
+            color: #a5aec5;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            text-align: center;
+            background: linear-gradient(135deg, #202a49, #172a37);
+            padding: 50px 20px;
+            border-radius: 20px;
+            border: 1px solid #303953;
+        }
+
+        .contact-box p {
+            color: #a5aec5;
+            margin: 15px 0 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #a5aec5;
+            border-top: 1px solid #252c40;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media(max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 14px;
+                font-size: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="container">
+            <div class="logo">ANKIT<span>.</span></div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero container" id="home">
+
+        <div class="hero-content">
+            <h4>Computer Science Student</h4>
+
+            <h1>
+                Hi, I'm Ankit Raj.<br>
+                <span>Developer & Learner.</span>
+            </h1>
+
+            <p>
+                I'm a B.Tech Computer Science student and startup trainee
+                interested in Java Backend Development, Cloud Computing
+                and DevOps. I enjoy building projects and learning
+                how real-world applications work.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn btn-primary">
+                    Explore Projects
+                </a>
+
+                <a href="#contact" class="btn">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+
+        <div class="profile">
+            <div class="avatar">AR</div>
+            <h2>Ankit Raj</h2>
+            <p>B.Tech CSE | 2027</p>
+            <p>Bhopal, India</p>
+        </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="container">
+
+            <div class="section-title">
+                <span>About Me</span>
+                <h2>Know More About Me</h2>
+                <p>My background and what I am working towards.</p>
+            </div>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>My Background</h3>
+                    <p>
+                        I am pursuing B.Tech in Computer Science
+                        and Engineering from Sagar Institute of
+                        Research & Technology, Bhopal.
+                        I enjoy solving technical problems and
+                        learning new technologies.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>My Goals</h3>
+                    <p>
+                        My goal is to become a skilled software
+                        professional with strong backend and
+                        DevOps fundamentals. I focus on practical
+                        learning and understanding industry workflows.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Technical Skills</span>
+                <h2>My Technology Stack</h2>
+            </div>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Development</h3>
+                    <div class="skills">
+                        <span class="skill">Java</span>
+                        <span class="skill">Spring Boot</span>
+                        <span class="skill">MySQL</span>
+                        <span class="skill">HTML</span>
+                        <span class="skill">CSS</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">REST API</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skills">
+                        <span class="skill">Linux</span>
+                        <span class="skill">Git</span>
+                        <span class="skill">Docker</span>
+                        <span class="skill">AWS</span>
+                        <span class="skill">CI/CD</span>
+                        <span class="skill">GitHub Actions</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <div class="container">
+
+            <div class="section-title">
+                <span>My Work</span>
+                <h2>Featured Projects</h2>
+                <p>Some projects I have worked on.</p>
+            </div>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <h3>Credence 2.0</h3>
+
+                    <p>
+                        An AI-powered clinical data platform.
+                        Worked on backend development, REST APIs,
+                        JWT authentication and database integration.
+                    </p>
+
+                    <div class="skills">
+                        <span class="skill">Java</span>
+                        <span class="skill">Spring Boot</span>
+                        <span class="skill">MySQL</span>
+                        <span class="skill">JWT</span>
+                    </div>
+
+                    <br>
+
+                    <a href="https://github.com/Ankitraj1124/Credence-2.0"
+                       target="_blank">
+                        View Project →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>DevOps Practical Labs</h3>
+
+                    <p>
+                        Hands-on learning projects focused on Linux,
+                        Docker, AWS and CI/CD automation.
+                        Add your completed project repository here.
+                    </p>
+
+                    <div class="skills">
+                        <span class="skill">Linux</span>
+                        <span class="skill">Docker</span>
+                        <span class="skill">AWS</span>
+                        <span class="skill">CI/CD</span>
+                    </div>
+
+                    <br>
+
+                    <a href="https://github.com/ankitraj1124"
+                       target="_blank">
+                        View GitHub →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience">
+        <div class="container">
+
+            <div class="section-title">
+                <span>My Journey</span>
+                <h2>Education & Experience</h2>
+            </div>
+
+            <div class="experience">
+
+                <div class="experience-item">
+                    <h3>Startup Trainee</h3>
+                    <p>2026 - Present</p>
+                    <p>
+                        Gaining practical industry exposure,
+                        understanding technical workflows and
+                        working with real-world tools.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>B.Tech - Computer Science & Engineering</h3>
+                    <p>2023 - 2027</p>
+                    <p>
+                        Sagar Institute of Research & Technology,
+                        Bhopal.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="container">
+
+            <div class="contact-box">
+                <h2>Let's Connect!</h2>
+
+                <p>
+                    Have an opportunity, project idea or just
+                    want to connect? Feel free to reach out.
+                </p>
+
+                <div class="buttons" style="justify-content:center">
+
+                    <a href="mailto:ankitraj240303@gmail.com"
+                       class="btn btn-primary">
+                        Email Me
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/ankitraj-software/"
+                       target="_blank"
+                       class="btn">
+                        LinkedIn
+                    </a>
+
+                    <a href="https://github.com/ankitraj1124"
+                       target="_blank"
+                       class="btn">
+                        GitHub
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Ankit Raj | Built with HTML & CSS</p>
+    </footer>
+
+</body>
+</html>
